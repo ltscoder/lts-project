@@ -10,6 +10,9 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
+/**
+ * 【netty源码分析之服务端启动全解析】 by 简书闪电侠
+ */
 public final class SimpleServer {
 
     public static void main(String[] args) throws Exception {

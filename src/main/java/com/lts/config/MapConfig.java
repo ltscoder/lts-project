@@ -7,9 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import java.util.Map;
 
 /**
- * @author luotianshun
- * @date 2021/1/18
- * @menu
+ * test @ConfigurationProperties for map
  */
 @Configuration
 @ConfigurationProperties(prefix = "mapconfig")

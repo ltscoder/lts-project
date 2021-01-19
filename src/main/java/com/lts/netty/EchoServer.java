@@ -9,9 +9,7 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
 /**
- * @author luotianshun
- * @date 2021/1/15
- * @menu
+ * 代码来源【[Netty] - Netty入门(最简单的Netty客户端/服务器程序)】 by liuming_1992
  */
 public class EchoServer {
     private final int port;

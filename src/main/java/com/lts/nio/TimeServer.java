@@ -2,6 +2,9 @@ package com.lts.nio;
 
 import java.io.IOException;
 
+/**
+ * 代码来源 【NIO源码阅读】 by 超大的皮卡丘
+ */
 public class TimeServer {
 
     public static void main(String[] args) throws IOException {

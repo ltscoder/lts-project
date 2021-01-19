@@ -11,6 +11,13 @@ import org.springframework.web.bind.support.SessionStatus;
 
 import javax.servlet.http.HttpSession;
 
+
+/**
+ *参考
+ * 【从原理层面掌握@ModelAttribute的使用（核心原理篇）【享学Spring MVC】】
+ * 【从原理层面掌握@SessionAttributes的使用【享学Spring MVC】】
+ * 【从原理层面掌握@RequestAttribute、@SessionAttribute的使用【享学Spring MVC】】  by YourBatman
+ */
 @Controller
 @RequestMapping("/sessionattr/demo")
 @SessionAttributes(value = {"book", "description"}, types = {Double.class})
