@@ -1,4 +1,6 @@
-package com.lts.arth;
+package com.lts.arth.search;
+
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -6,8 +8,9 @@ import java.util.Queue;
 /**
  * @author luotianshun
  * @date 2021/2/3
- * @menu
+ * @menu 岛屿数量问题 LeetCode 200
  */
+@Slf4j
 public class NumIsland {
 
     /**
@@ -17,6 +20,10 @@ public class NumIsland {
      * @param args
      */
     public static void main(String args[]) {
+
+        log.info("dfd");
+
+
 
         int[][] arr = {{1,1,0,0,0},{1,1,0,0,0},{0,0,1,0,0},{0,0,0,1,1}};
 

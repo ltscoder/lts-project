@@ -1,11 +1,14 @@
 package com.lts;
 
+import com.lts.module0122.MyList;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.ResolvableType;
 import org.springframework.util.ReflectionUtils;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -14,7 +17,13 @@ import java.util.Map;
  * @date 2020/12/23
  * @menu
  */
+@Slf4j
 public class ApplicationTest<V> {
+
+
+
+
+
     public List<Map<String,String>> maps = new ArrayList<>();
 
     private String string;
@@ -24,6 +33,18 @@ public class ApplicationTest<V> {
     private V v;
     private V[] genericArr;
     public static void main(String[] args) throws IOException, NoSuchMethodException, NoSuchFieldException {
+//        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//        String format = dateFormat.format(new Date(1612049301000l));
+//        System.out.println(format);
+
+        List<String> reverstest = new ArrayList<>();
+        reverstest.add("2");
+        reverstest.add("3");
+        System.out.println(reverstest);
+        Collections.reverse(reverstest);
+        System.out.println(reverstest);
+
+
 //        System.out.println(new Date().getTime());
 //        System.out.println(LocalDateTime.now().truncatedTo(ChronoUnit.DAYS).toInstant(ZoneOffset.of("+8")).toEpochMilli());
 
@@ -145,10 +166,9 @@ public class ApplicationTest<V> {
         ResolvableType componentType5 = wild.getComponentType();
         ResolvableType componentType6 = rGenericArr.getComponentType();
 
+        ResolvableType.forClass(List.class, MyList.class);
 
-        //test for getGeneric() end
 
-        //test for resolveType() start
 
 
         System.out.println("dfsd");
