@@ -32,6 +32,8 @@ public class B11BracketGeneration {
         List<String> result = solution(n);
         System.out.println(result);
 
+        //参考【LeetCode（22）：括号生成】解法1 by Ariel_一只猫的旅行
+
     }
 
 
