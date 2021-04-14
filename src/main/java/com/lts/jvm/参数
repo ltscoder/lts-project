@@ -1,0 +1,30 @@
+-Xms(-XX:InitialHeapSize) jvm初始堆内存
+-Xmx(-XX:MaxHeapSize)  jvm最大堆内存
+-XX:NewSize 新生代大小
+-XX:MaxNewSize 最大新生代大小
+-XX:NewRatio=3 指定老年代/新生代为3/1
+-XX:SurvivorRatio=10 表示伊甸园区(Eden)是 幸存区To 大小的10倍(也是幸存区From的10倍)
+
+ -XX:+PrintFlagsFinal打印所有参数
+-XX:+PrintTenuringDistribution 指定JVM 在每次新生代GC时，输出幸存区中对象的年龄分布。 好像对parallel scanvage不起作用。
+-XX:+PrintGC 输出GC日志
+-XX:+PrintGCDetails 输出GC的详细日志
+-XX:+PrintGCTimeStamps 输出GC的时间戳（以基准时间的形式）
+-XX:+PrintGCDateStamps 输出GC的时间戳（以日期的形式，如 2013-05-04T21:53:59.234+0800）
+-XX:+PrintHeapAtGC 在进行GC的前后打印出堆的信息
+-Xloggc:../logs/gc.log 日志文件的输出路径
+
+-XX:InitialTenuringThreshold 老年代阀值的初始值
+-XX:MaxTenuringThreshold 老年代阀值的最大值
+-XX:TargetSurvivorRatio=90 设定幸存区空间目标使用率为90%。
+-XX:PretenureSizeThreshold，创建对象大小超过这个值，直接放到老年代时。该参数默认为0，即都放到eden区。在Parallel Scavenge这种垃圾收集器中是失效的
+-XX:+NeverTenure 对象永远不会晋升到老年代
+-XX:+AlwaysTenure 表示没有幸存区,所有对象在第一次GC时，会晋升到老年代。
+
+-XX:GCTimeRatio=999999999
+-XX:AdaptiveSizePolicyOutputInterval=1 （~parallel）每次gc打印自动调整的倾向。
+
+--------------------------
+G1
+-XX:G1HeapWastePercent=5 在全局并发标记结束后能够统计出所有可被回收的垃圾占Heap的比例值，如果超过5%，那么就会触发之后的多轮Mixed GC,直到少于5%
+-XX:InitiatingHeapOccupancyPercent=45 当整个堆占用超过某个百分比时，就会触发并发GC周期
