@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Consumer;
 
 /**
  * @author luotianshun
@@ -18,7 +19,7 @@ import java.util.Map;
  * @menu
  */
 @Slf4j
-public class ApplicationTest<V> {
+public class ResolvableTypeTest<V> {
 
 
 
@@ -133,13 +134,13 @@ public class ApplicationTest<V> {
 //        ResolvableType resolvableType1 = ResolvableType.forClassWithGenerics(List.class, String.class);
 
 //        ReflectionUtils.findField(ApplicationTest.class, "listLists");
-        Field v = ReflectionUtils.findField(ApplicationTest.class, "v");
-        Field string = ReflectionUtils.findField(ApplicationTest.class, "string");
+        Field v = ReflectionUtils.findField(ResolvableTypeTest.class, "v");
+        Field string = ReflectionUtils.findField(ResolvableTypeTest.class, "string");
 //        Field listString = ReflectionUtils.findField(ApplicationTest.class, "listString");
-        Field listWildcard = ReflectionUtils.findField(ApplicationTest.class, "listWildcard");
-        Field genericArr = ReflectionUtils.findField(ApplicationTest.class, "genericArr");
+        Field listWildcard = ReflectionUtils.findField(ResolvableTypeTest.class, "listWildcard");
+        Field genericArr = ReflectionUtils.findField(ResolvableTypeTest.class, "genericArr");
 
-        ResolvableType rForClass = ResolvableType.forClass(ApplicationTest.class);
+        ResolvableType rForClass = ResolvableType.forClass(ResolvableTypeTest.class);
 //        resolvableType.getNested();
         //resolveClass(): -->resolveType().resolve()
         //resolveType()：this.type instanceof TypeVariable且this.variableResolver==null的情况
@@ -166,9 +167,10 @@ public class ApplicationTest<V> {
         ResolvableType componentType5 = wild.getComponentType();
         ResolvableType componentType6 = rGenericArr.getComponentType();
 
-        ResolvableType.forClass(List.class, MyList.class);
+        ResolvableType resolvableType = ResolvableType.forClass(List.class, MyList.class);
 
 
+        System.out.println(eequals(String::valueOf, String::valueOf));
 
 
         System.out.println("dfsd");
@@ -179,4 +181,9 @@ public class ApplicationTest<V> {
     }
 
 
+
+
+    public static boolean eequals(Consumer c1, Consumer c2) {
+        return c1.equals(c2);
+    }
 }

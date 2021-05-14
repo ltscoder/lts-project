@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * @date 2021/1/22
  * @menu
  */
-public class MyList extends ArrayList {
+public class MyList extends ArrayList<String> {
 
     @Override
     public String toString() {
