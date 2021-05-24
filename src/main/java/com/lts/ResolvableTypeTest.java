@@ -1,6 +1,6 @@
 package com.lts;
 
-import com.lts.module0122.MyList;
+import com.lts.module0122.MethodParameterSon;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.ResolvableType;
 import org.springframework.util.ReflectionUtils;
@@ -167,7 +167,12 @@ public class ResolvableTypeTest<V> {
         ResolvableType componentType5 = wild.getComponentType();
         ResolvableType componentType6 = rGenericArr.getComponentType();
 
-        ResolvableType resolvableType = ResolvableType.forClass(List.class, MyList.class);
+//        ResolvableType resolvableType = ResolvableType.forClass(List.class, MyList.class);
+
+//        ResolvableType resolvableType = ResolvableType.forField(ForFieldClass.class.getField("v"), ForFieldClassSon.class);
+//        ResolvableType resolvableType = ResolvableType.forField(ForFieldClass.class.getField("v"), ForFieldClassSon2.class);
+        ResolvableType add = ResolvableType.forMethodParameter(ArrayList.class.getMethod("add", Object.class), 0, MethodParameterSon.class);
+        ResolvableType resolvableType = ResolvableType.forArrayComponent(add);
 
 
         System.out.println(eequals(String::valueOf, String::valueOf));
