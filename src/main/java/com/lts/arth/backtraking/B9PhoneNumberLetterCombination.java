@@ -47,13 +47,14 @@ public class B9PhoneNumberLetterCombination {
      */
     private static void dfsPhoneNumberLetterCombination(String input, int index, List<String> result, String path) {
 
+        //~结束条件，达到深度限制了。
         if (path.length() == input.length()) {
             result.add(path);
             return;
         }
 
         //~这里B1-B8，深度和广度遍历的维度都是一样的
-        //~而这里深度遍历是对input。广度是对alphabet[i]，最后返回的path是从alphabet中获得的。
+        //~而这里深度遍历是对input(的长度)，或者说是根据path.length() == input.length()来判断。广度是对alphabet[i]，最后返回的path是从alphabet中获得的。
         int i = input.charAt(index) - '0';
         for (int j = 0; j < alphabet[i].length(); j++) {
             //这里回溯

@@ -30,8 +30,10 @@ public class PathSumII {
         //目标和
         int sum = 10;
 
+        //方法1：dfs
         List<List<Integer>> result = findAll(treeNode, sum);
         System.out.println(result);
+        //方法2：~bfs应该也行，用一个队列，略
 
     }
 
