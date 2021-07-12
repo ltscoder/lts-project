@@ -52,12 +52,39 @@ public class B1FullArray {
      * @param used 对应nums中的每位数字是否已经使用
      */
     private static void dfsFullArray(int[] nums, List<List<Integer>> res, List<Integer> path, boolean[] used) {
-        //nums.length == path.size(),说明nums被用完了，加入结果
-        if (nums.length == path.size()) {
-            res.add(new LinkedList(path));
+//        //nums.length == path.size(),说明nums被用完了，加入结果
+//        if (nums.length == path.size()) {
+//            res.add(new LinkedList(path));
+//            return;
+//        }
+//
+//        for (int i = 0; i < nums.length; i++) {
+//            // 如果这一位数字已经使用了
+//            if (used[i] == true) {
+//                continue;
+//            }
+//
+//            used[i] = true; //标明这个数字已经使用了
+//            path.add(nums[i]);
+//            dfsFullArray(nums, res, path, used);
+//            path.remove(path.size() - 1);
+//            used[i] = false; //标明这个数字没有使用
+//        }
+
+        //-----------------------------------------
+        //上面注释掉的是版本1
+        //版本2
+        //相当于这里判断dfs深度极限，提前了一级。
+        if (nums.length - 1== path.size()) {
+            for (int i = 0; i < used.length; i++) {
+                if (!used[i]) {
+                    path.add(nums[i]);
+                    res.add(new LinkedList<>(path));
+                }
+            }
+            path.remove(path.size() - 1);
             return;
         }
-
         for (int i = 0; i < nums.length; i++) {
             // 如果这一位数字已经使用了
             if (used[i] == true) {

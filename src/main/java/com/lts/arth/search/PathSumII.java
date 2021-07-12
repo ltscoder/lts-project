@@ -55,6 +55,8 @@ public class PathSumII {
      * @param path 遍历路径对应的data
      */
     private static void doFindAll(TreeNode root, int sumRemain, List<List<Integer>> lists, List<Integer> path) {
+        //版本1正确
+        //版本1
         if (null == root) {
             return;
         }
@@ -66,15 +68,38 @@ public class PathSumII {
                 lists.add(new ArrayList<>(path));
                 path.remove(path.size() - 1);
             }
-        } else {
-            //不是叶子节点，则对子节点dfs。
-            //先将当前节点data加入path
-            path.add(root.data);
-            doFindAll(root.left, sumRemain - root.data, lists, path);
-            doFindAll(root.right, sumRemain - root.data, lists, path);
-            //将当前节点data从path移除。
-            path.remove(path.size() - 1);
+            return;
         }
+
+        //不是叶子节点，则对子节点dfs。
+        //先将当前节点data加入path
+        path.add(root.data);
+        doFindAll(root.left, sumRemain - root.data, lists, path);
+        doFindAll(root.right, sumRemain - root.data, lists, path);
+        //将当前节点data从path移除。
+        path.remove(path.size() - 1);
+
+
+//-----------------------------------------------
+//        //版本2
+//        //上面注释掉的是之前写的，下面是根据自己总结后的回溯+dfs固定模板写的
+//        //但是发现这样写输出会重复，因为
+//        //1doFindAll(root.left和doFindAll(root.right会导致结果输出两次
+//        //2当遇到一个只有左节点没有右节点的情况会出现误判。
+//        //所以还是上面版本1正确。
+//        //判断是否达到dfs深度极限。达到就返回
+//        if (null == root) {
+//            if (sumRemain == 0) {
+//                lists.add(new ArrayList<>(path));
+//            }
+//            return;
+//        }
+//        //继续dfs
+//        path.add(root.data);
+//        doFindAll(root.left, sumRemain - root.data, lists, path);
+//        doFindAll(root.right, sumRemain - root.data, lists, path);
+//        //回溯将当前节点data从path移除。
+//        path.remove(path.size() - 1);
     }
 
     /**
