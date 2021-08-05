@@ -4,6 +4,8 @@ package com.lts.arth.sort;
  * @author luotianshun
  * @date 2021/7/16
  * @menu 快速排序
+ * 从数组的第一个元素作为参照，将数组根据大于小于分两组，再递归
+ * 参考https://blog.csdn.net/nrsc272420199/article/details/82587933
  */
 public class S2QuickSort {
 

@@ -2,6 +2,7 @@
 -Xmx(-XX:MaxHeapSize)  jvm最大堆内存
 -XX:NewSize 新生代大小
 -XX:MaxNewSize 最大新生代大小
+-Xmn:新生代大小，对-XX:newSize、-XX:MaxnewSize两个参数同时进行配置（注意：JDK1.4之后才有该参数）
 -XX:NewRatio=3 指定老年代/新生代为3/1
 -XX:SurvivorRatio=10 表示伊甸园区(Eden)是 幸存区To 大小的10倍(也是幸存区From的10倍)
 

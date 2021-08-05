@@ -39,6 +39,7 @@ public class SortedTwoArrays {
         //扩展，求两个数组的中位数,在findTopMedianSortedArrays方法基础上改一下就行
         double medianSortedArrays = findMedianSortedArrays(n1, n2);
         System.out.println(medianSortedArrays);
+
     }
 
     /**

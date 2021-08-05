@@ -29,6 +29,14 @@ import java.util.Date;
 public class Application {
 
     public static void main(String[] args) {
+        JavaPTest javaPTest = new JavaPTest("1", "2") {
+            @Override
+            protected void getInstance2() {
+
+            }
+        };
+        javaPTest.getInstance2();
+        javaPTest.getInstance3();
         SpringApplication.run(Application.class, args);
     }
 
