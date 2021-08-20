@@ -1,5 +1,6 @@
 package com.lts;
 
+import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 import java.util.function.Function;
 
@@ -34,8 +35,20 @@ public abstract class JavaPTest implements Function {
     }
 
 
-    public static void main(String[] args) throws ClassNotFoundException, SQLException {
-
+    public static void main(String[] args) throws ClassNotFoundException, SQLException, UnsupportedEncodingException {
+        char c = '汉';
+        String s = "汉";
+        String ss = "d";
+        byte[] bytes = s.getBytes("utf-8");
+        byte[] bytes1 = ss.getBytes("utf-8");
+        byte[] bytes2 = new byte[4];
+        bytes2[0] = bytes[0];
+        bytes2[1] = bytes[1];
+        bytes2[2] = bytes[2];
+        bytes2[3] = bytes1[0];
+        System.out.println(byteArrToBinStr(bytes));
+        String converTedStr = new String(bytes2, "utf-8");
+        System.out.println(binStrToByteArr(converTedStr));
         JavaPTest spiTest = new JavaPTest("1", "1"){
 
             @Override
@@ -91,6 +104,23 @@ public abstract class JavaPTest implements Function {
 
      abstract void    getInstance2();
     protected  void    getInstance3(){};
+
+
+    public static String byteArrToBinStr(byte[] b) {
+        StringBuffer result = new StringBuffer();
+        for (int i = 0; i < b.length; i++) {
+            result.append(Long.toString(b[i] & 0xff, 2) + ",");
+        }
+        return result.toString().substring(0, result.length() - 1);
+    }
+    public static byte[] binStrToByteArr(String binStr) {
+        String[] temp = binStr.split(",");
+        byte[] b = new byte[temp.length];
+        for (int i = 0; i < b.length; i++) {
+            b[i] = Long.valueOf(temp[i], 2).byteValue();
+        }
+        return b;
+    }
 }
 //
 //    Connection connection = null;
